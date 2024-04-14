@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float tempo;
+    char planeta;
+    float gravidade, velocidade;
+
+   
+    printf("Digite o tempo de queda (em milissegundos): ");
+    scanf("%f", &tempo);
+    printf("Digite o planeta (T - Terra, V - Vênus, M - Mercúrio): ");
+    scanf(" %c", &planeta);
+
+ 
+    if (tempo <= 0) {
+        printf("Tempo invalido.\n");
+        return 0;
+    }
+
+    //  velocidade de queda de acordo com o planeta
+    switch(planeta) {
+        case 'T':
+         case 't':
+            gravidade = 9.807;
+            break;
+        case 'V':
+      case 'v':
+            gravidade = 8.87;
+            break;
+        case 'M':
+          case'm':
+            gravidade = 3.7;
+            break;
+        default:
+            printf("Planeta invalido.\n");
+            return 0; 
+    }
+
+    
+    velocidade = gravidade * tempo / 1000; // Convertendo tempo para segundos (tempo em milissegundos)
+
+    
+    printf("A velocidade de queda no planeta %c é: %.2f m/s\n", planeta, velocidade);
+
+    return 0;
+}
+
+
+
